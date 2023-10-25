@@ -6,7 +6,7 @@ import 'package:weather_app/view/pages/page_home.dart';
 import 'package:weather_app/viewmodel/provider/provider_loc_permission.dart';
 
 import '../../model/model_weather.dart';
-import '../../viewmodel/responce_weather.dart';
+import '../../viewmodel/api_response/responce_weather.dart';
 
 // ignore: must_be_immutable
 class MySearchBar extends StatefulWidget {
