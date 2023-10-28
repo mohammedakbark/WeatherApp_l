@@ -9,9 +9,4 @@ class ThemeProvider with ChangeNotifier {
     _darktheme = value;
     notifyListeners();
   }
-
-
-
- 
-   
 }

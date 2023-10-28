@@ -1,11 +1,10 @@
 import 'package:weather_app/model/model_forcastdata.dart';
 import 'package:weather_app/model/model_weather.dart';
-import 'package:weather_app/utils/constant.dart';
 
 weatherConditions({Weather? obj,ForcastWeather? obj2,myindext}) {
  
  
-  switch (obj?.description ?? obj2?.list?[myindext].description??"") {
+  switch (obj?.description ?? obj2?.list?[myindext].description) {
     case "light rain":
       return "assets/lightrain.png";
     case "clear sky":

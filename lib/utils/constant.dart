@@ -7,6 +7,7 @@ final currentDate = DateFormat('EEEE, MMM d h:mm a').format(DateTime.now());
 double? lat;
 double? lon;
 String localitys = "";
+String countrycode = "";
 String finalAddress = "";
 String apiId = "3d085be1194c6b7cbd8f7b162c1e273e";
 // String subLocalitys = "";
@@ -14,7 +15,9 @@ String apiId = "3d085be1194c6b7cbd8f7b162c1e273e";
 const radius = Radius.circular(400);
 ///////////////////////////////////////////////////////////////////////////////////////////////
 const weatherTextStyle =
-    TextStyle(color: defaultAmber, fontWeight: FontWeight.bold, fontSize: 18);
+    TextStyle(color: defaultAmber, fontWeight: FontWeight.bold, fontSize: 24);
+const headStyle =
+    TextStyle(color: Colors.amber, fontSize: 18, fontWeight: FontWeight.bold);
 ////////////////////////////////////////////////
 const darkbgGradientBXDec = BoxDecoration(
     gradient: LinearGradient(

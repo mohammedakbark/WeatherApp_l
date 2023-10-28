@@ -11,7 +11,7 @@ Color darkPrimaryColor = Colors.black;
 Color darkHintText = Colors.white;
 Color darkAppbar = Colors.black;
 
-Color secondaryColor = Color.fromARGB(255, 255, 59, 59);
+Color secondaryColor = Color.fromARGB(255, 255, 255, 255);
 //////////////////////////////////////////////////////
 const defaultWhiteColor = Colors.white;
 const customGrey = Color.fromARGB(221, 3, 2, 2);

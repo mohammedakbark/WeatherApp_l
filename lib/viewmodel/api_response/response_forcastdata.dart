@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -16,9 +17,10 @@ class GetForcast {
       print("kjkkkkkkkkkkkkkkkkkk");
       return ForcastWeather.fromJson(body);
     } else {
-      return throw showDialog(
+      // Future<dynamic> aaav() async {
+      return throw showCupertinoDialog(
           context: context,
-          builder: (BuildContext context) => AlertDialog(
+          builder: (BuildContext context) => CupertinoAlertDialog(
                 title: const Text("Notification"),
                 content: const Text(
                     "Can't find the place you tried to search \nRetry to find another place"),
@@ -32,4 +34,6 @@ class GetForcast {
               ));
     }
   }
+  // return ForcastWeather();
 }
+// }

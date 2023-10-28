@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/view/pages/page_home.dart';
-
-import '../../viewmodel/provider/provider_loc_permission.dart';
+import 'package:lottie/lottie.dart';
+import '../../viewmodel/loc_permission.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+    LocPermissionProvider locPermissionProvider =LocPermissionProvider();
 
-  // bool scaffolVisibility = false;
+   SplashScreen({super.key});
   @override
   Widget build(BuildContext context) {
+  locPermissionProvider. getCurrentLocation().then(
+        // (value) async => await Future.delayed(const Duration(seconds: 3)).then(
+        (value) => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomePage())));
 
-    Provider.of<LocPermissionProvider>(context).getCurrentLocation().then(
-        (value) async => await Future.delayed(const Duration(seconds: 3)).then(
-            (value) => Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => HomePage()))));
-
-    return const Scaffold(
-
+    return  Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: Lottie.asset("assets/splash.json")
       ),
     );
   }

@@ -10,6 +10,8 @@ class Weather {
   num? wind;
   int? dt;
   DateTime? time;
+  double? tempMin;
+  double? tempMax;
   Weather(
       {this.cityName,
       this.country,
@@ -21,6 +23,8 @@ class Weather {
       this.wind,
       this.clouds,
       this.dt,
+      this.tempMax,
+      this.tempMin,
       this.time});
 
   Weather.fromJson(Map<String, dynamic> json) {
@@ -31,10 +35,11 @@ class Weather {
     temperature = json["main"]["temp"];
     pressure = json["main"]["pressure"];
     humidity = json["main"]["humidity"];
-    pressure = json["main"]["visibility"];
+    visibility = json["main"]["visibility"];
+    tempMax = json["main"]["temp_max"];
+    tempMin = json["main"]["temp_min"];
+
     dt = json["dt"];
     clouds = json["clouds"]["all"];
   }
-
-  
 }
