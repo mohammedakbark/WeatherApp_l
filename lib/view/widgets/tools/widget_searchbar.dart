@@ -6,7 +6,6 @@ import 'package:weather_app/viewmodel/loc_permission.dart';
 
 import '../../../viewmodel/provider/provider_serchbar.dart';
 
-// ignore: must_be_immutable
 class MySearchBar extends StatefulWidget {
   TextEditingController? controller;
 

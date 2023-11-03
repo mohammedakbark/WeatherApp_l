@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/utils/colors.dart';
 import 'package:weather_app/viewmodel/provider/provide_historydata.dart';
-import 'package:weather_app/viewmodel/provider/provider_serchbar.dart';
 import 'package:weather_app/viewmodel/provider/provider_theme.dart';
-
-import '../../model/model_history.dart';
 
 class HistoryPage extends StatelessWidget {
   HistoryPage({
     super.key,
   });
-  // SearchHistoryProvider searchHistory = SearchHistoryProvider();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -50,16 +47,17 @@ class HistoryPage extends StatelessWidget {
                           sHProvider.searchListData.length - 1 - index;
 
                       return Container(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 197, 196, 192),
                             borderRadius: BorderRadius.circular(20)),
                         height: 50,
                         width: double.infinity,
                         child: ListTile(
-                          leading: Text(sHProvider.date[reversedIndex]??""),
-                          title: Text(sHProvider.searchListData[reversedIndex]??""),
-                          trailing: Text(sHProvider.time[reversedIndex]??""),
+                          leading: Text(sHProvider.date[reversedIndex] ?? ""),
+                          title: Text(
+                              sHProvider.searchListData[reversedIndex] ?? ""),
+                          trailing: Text(sHProvider.time[reversedIndex] ?? ""),
                         ),
                       );
                     }));
@@ -68,12 +66,12 @@ class HistoryPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 12,
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () {
-            Provider.of<SearchHistoryProvider>(context, listen: false)
-                .clearSearchHistory();
-          },
-          child: Text("Clear History"),
-        ),
+            onPressed: () {
+              Provider.of<SearchHistoryProvider>(context, listen: false)
+                  .clearSearchHistory();
+            },
+            child: const Text("Clear History",
+                style: TextStyle(color: Colors.white))),
       ),
     );
   }

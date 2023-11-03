@@ -1,19 +1,11 @@
 class ForcastWeather {
-  // int? timezone;
-  // int? sunrise;
-  // int? sunset;
   List<ListElement>? list;
 
   ForcastWeather({
-    // this.timezone,
-    // this.sunrise,
-    // this.sunset,
     this.list,
   });
   ForcastWeather.fromJson(Map<String, dynamic> json) {
-    // timezone = json["city"]["timezone"];
-    // sunrise = json["city"]["sunrise"];
-    // sunset = json["city"]["sunset"];
+
 
     list = List<ListElement>.from(
         json["list"].map((e) => ListElement.fromJson(e)));
@@ -29,7 +21,7 @@ class ListElement {
   int? dt;
   num? tempMin;
   num? tempMax;
-  // List<WeatherElement>? weatherList;
+  
   ListElement(
       {this.humidityy,
       this.temp,

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:provider/provider.dart';
-
 import '../../../utils/colors.dart';
-import '../../../viewmodel/provider/provider_theme.dart';
 import '../../pages/page_history.dart';
 
 Widget myDrawer({context, required themestate}) {
@@ -19,7 +16,6 @@ Widget myDrawer({context, required themestate}) {
           leading: Icon(Icons.history),
           title: Row(
             children: [
-            
               Text(
                 "Hisory",
                 style: TextStyle(
@@ -57,7 +53,7 @@ Widget myDrawer({context, required themestate}) {
                 height: 30,
                 value: themestate.getDarktheme,
                 onToggle: (selected) {
-                  themestate.setDarktheme = selected;
+                  themestate.setDarktheme(selected);
                 }),
           ],
         ),

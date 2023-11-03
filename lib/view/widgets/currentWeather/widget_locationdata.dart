@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../utils/colors.dart';
-import '../../../viewmodel/provider/provider_theme.dart';
 
 Widget locationData(
     {required themestate,
@@ -51,7 +49,6 @@ Widget locationData(
               child: Row(
                 children: [
                   SizedBox(
-                    // width: MediaQuery.of(context).size.width / 2.5,
                     child: Text(
                       temperature,
                       style: TextStyle(

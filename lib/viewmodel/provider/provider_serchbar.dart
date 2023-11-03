@@ -8,6 +8,4 @@ class SearchBarProvider with ChangeNotifier {
     print(serchBarEnabled);
     notifyListeners();
   }
-
- 
 }

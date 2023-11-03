@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 import 'package:lottie/lottie.dart';
 import '../../../utils/colors.dart';
 import '../../../viewmodel/descreption_image.dart';
-import '../../../viewmodel/provider/provider_theme.dart';
 
 Widget singleDayForcastData({
   weather,
@@ -25,7 +23,7 @@ Widget singleDayForcastData({
     timeOnly = timeFormat.format(datetime);
   }
 
-  print(timeOnly);
+  // print(timeOnly);
 
   return Column(
     children: [
@@ -55,7 +53,7 @@ Widget singleDayForcastData({
               height: 10,
             ),
             Container(
-                margin: EdgeInsets.only(left: 5, right: 5),
+                margin:const EdgeInsets.only(left: 5, right: 5),
                 width: 130,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -149,16 +147,6 @@ Widget singleDayForcastData({
             // Text(sunrise),
             // Text(sunset),
           ])),
-      // Text(
-      //   timeOnly,
-      //   style: TextStyle(
-      //     fontSize: 20,
-      //     fontWeight: FontWeight.w200,
-      //     color: themestate.getDarktheme
-      //         ? defaultWhiteColor
-      //         : cityAndTemperatureColor,
-      //   ),
-      // ),
     ],
   );
 }

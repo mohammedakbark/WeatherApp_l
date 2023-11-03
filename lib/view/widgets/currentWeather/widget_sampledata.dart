@@ -5,7 +5,6 @@ import '../../../utils/colors.dart';
 Widget smapleData({
   required themestate,
   required context,
- 
   required String humidity,
   required String maxTemp,
   required String wind,
@@ -49,7 +48,7 @@ Widget smapleData({
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-          Image.asset(
+              Image.asset(
                 "assets/humidity.png",
                 color: themestate.getDarktheme
                     ? defaultWhiteColor

@@ -4,12 +4,13 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
-import 'package:weather_app/view/pages/page_home.dart';
 import 'package:weather_app/viewmodel/provider/provide_historydata.dart';
 
 import '../utils/constant.dart';
+import '../view/pages/page_home.dart';
 
 class LocPermissionProvider {
+
   Position? latLonposition;
   Placemark decodeData = Placemark();
   Location? locationData;
@@ -35,8 +36,7 @@ class LocPermissionProvider {
 
   Future<void> getCurrentLocation() async {
     latLonposition = await _getCurrentLatLonPosition();
-    print(
-        "${latLonposition.toString()}successfully get lat and lon////////////////////");
+    print("lat and loc = ${latLonposition.toString()}");
     lat = latLonposition!.latitude;
     lon = latLonposition!.longitude;
     _getAddressFromLatLon(latLonposition!);
@@ -50,7 +50,7 @@ class LocPermissionProvider {
       decodeData = placemarks[0];
       countrycode = decodeData.isoCountryCode.toString();
 
-      print("//////////////successfully  DECODEd$decodeData");
+      print("DECODED List of Datasssss $decodeData");
       if (decodeData.subLocality!.isNotEmpty) {
         localitys = decodeData.subLocality.toString();
       } else if (decodeData.locality!.isNotEmpty) {
@@ -70,28 +70,14 @@ class LocPermissionProvider {
       await locationFromAddress(address)
           .then((value) => locationData = value[0]);
     } catch (e) {
-      return showCupertinoDialog(
-          context: context,
-          builder: (BuildContext context) => CupertinoAlertDialog(
-                title: const Text("Notification"),
-                content: const Text(
-                    "Can't find the place you tried to search \nRetry to find another place"),
-                actions: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text("retry"))
-                ],
-              ));
+      return showNotification(context);
     }
-
     lat = locationData!.latitude;
     lon = locationData!.longitude;
     await placemarkFromCoordinates(lat!.toDouble(), lon!.toDouble())
         .then((placemarks) {
       decodeData = placemarks[0];
-      print("//////////////successfully  DECODEd$decodeData");
+      print("DECODED List of Data $decodeData");
 
       if (decodeData.subLocality!.isNotEmpty &&
           decodeData.subLocality == finalAddress) {
@@ -106,8 +92,22 @@ class LocPermissionProvider {
         localitys = decodeData.country.toString();
       }
     }).then((value) => searchHistory.addToSearchHistory(localitys, time, date));
-    // .catchError((e) {
-    //   debugPrint(e);
-    // });
   }
+}
+
+showNotification(context) {
+  return showCupertinoDialog(
+      context: context,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+            title: const Text("Notification"),
+            content: const Text(
+                "Can't find the place you tried to search \nRetry to find another place"),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("retry"))
+            ],
+          ));
 }

@@ -21,15 +21,13 @@ Widget oneWeekForcast(
     DateTime datetime = DateFormat("yyyy-MM-dd HH:mm:ss").parse(time);
     timeOnly = timeFormat.format(datetime);
   }
-
-  // String dateonly = dateFormat.format(datetime);
-  print(timeOnly);
+  // print(timeOnly);
   return Container(
     decoration: BoxDecoration(
         color: themestate.getDarktheme
             ? cityAndTemperatureColor
             : defaultWhiteColor,
-        borderRadius: BorderRadius.all(Radius.circular(10))),
+        borderRadius:const BorderRadius.all(Radius.circular(10))),
     padding: const EdgeInsets.all(10),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

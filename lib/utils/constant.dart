@@ -10,7 +10,6 @@ String localitys = "";
 String countrycode = "";
 String finalAddress = "";
 String apiId = "3d085be1194c6b7cbd8f7b162c1e273e";
-// String subLocalitys = "";
 
 const radius = Radius.circular(400);
 ///////////////////////////////////////////////////////////////////////////////////////////////

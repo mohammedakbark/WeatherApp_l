@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../model/model_history.dart';
-
 class SearchHistoryProvider with ChangeNotifier {
   List<String> searchListData = [];
   List<String> time = [];
@@ -10,6 +8,7 @@ class SearchHistoryProvider with ChangeNotifier {
 
   void addToSearchHistory(String place, String now, String dateNow) async {
     final prefs = await SharedPreferences.getInstance();
+    
     searchListData = prefs.getStringList('searchHistory') ?? [];
     time = prefs.getStringList('time') ?? [];
     date = prefs.getStringList('date') ?? [];
@@ -27,10 +26,6 @@ class SearchHistoryProvider with ChangeNotifier {
     searchListData = prefs.getStringList('searchHistory') ?? [];
     time = prefs.getStringList('time') ?? [];
     date = prefs.getStringList('date') ?? [];
-
-    // return searchListData.map((place) {
-    //   return SearchHistoryItem(place, time.toString());
-    // }).toList();
   }
 
   void clearSearchHistory() async {

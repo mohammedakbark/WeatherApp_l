@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/model/model_forcastdata.dart';
@@ -20,12 +19,11 @@ import '../widgets/forcast/widget_singleday_forcastdatas.dart';
 import '../widgets/tools/widget_drawer.dart';
 import '../widgets/tools/widget_searchbar.dart';
 
-// ignore: must_be_immutable
+
 class HomePage extends StatelessWidget {
   HomePage({super.key});
   TextEditingController searchBarController = TextEditingController();
   Weather? weather;
-  LocPermissionProvider locPermissionProvider = LocPermissionProvider();
 
   GetWeather getweather = GetWeather();
 
@@ -105,7 +103,7 @@ class HomePage extends StatelessWidget {
                     ? darkbgGradientBXDec
                     : lightbgGradientBXDec,
                 child: RefreshIndicator(
-                  onRefresh: () => locPermissionProvider
+                  onRefresh: () => LocPermissionProvider()
                       .getCurrentLocation()
                       .then((value) => Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => HomePage()))),
@@ -173,7 +171,13 @@ class HomePage extends StatelessWidget {
                                 );
                               }),
                         ),
+                        const SizedBox(
+                          height: 25,
+                        ),
                         const Text(" 5 Day Forcast", style: headStyle),
+                        const SizedBox(
+                          height: 25,
+                        ),
                         SingleChildScrollView(
                           child: GestureDetector(
                             child: Container(
@@ -211,30 +215,7 @@ class HomePage extends StatelessWidget {
                                             "${forcastweather?.list?[index].temp?.toInt() ?? "0"}°")))),
                           ),
                         ),
-                        // TextButton(
-                        TextButton(
-                          child: const Text('See All',
-                              style: TextStyle(
-                                  color: Colors.amber,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold)),
-                          onPressed: () {
-                            // showModalBottomSheet<void>(
-                            //   context: context,
-                            //   builder: (BuildContext context) => ListView.builder(
-                            //       itemCount: forcastweather?.list?.length,
-                            //       itemBuilder: ((context, index) => oneWeekForcast(
-                            //           index: index,
-                            //           obj: forcastweather,
-                            //           date:
-                            //               "${forcastweather?.list?[index].dtTxt}",
-                            //           descreption:
-                            //               "${forcastweather?.list?[index].description}",
-                            //           temp:
-                            //               "${forcastweather?.list?[index].temp?.toInt() ?? "0"}°"))),
-                            // );
-                          },
-                        ),
+                      
                       ]),
                     ),
                   ]),
@@ -251,17 +232,3 @@ class HomePage extends StatelessWidget {
     forcastweather = await getforcast.fetchForcastWeather(lat, lon, context);
   }
 }
-// TextButton(
-//                               child: const Text('See All',
-//                                   style: TextStyle(
-//                                       color: Colors.amber,
-//                                       fontSize: 18,
-//                                       fontWeight: FontWeight.bold)),
-//                               onPressed: () {
-//                                 showModalBottomSheet<void>(
-//                                     showDragHandle: true,
-//                                     context: context,
-//                                     builder: (BuildContext context) =>
-//                                         fiveDayForcast());
-//                               },
-//                             ),
