@@ -12,10 +12,12 @@ class Weather {
   DateTime? time;
   double? tempMin;
   double? tempMax;
+  dynamic icon;
   Weather(
       {this.cityName,
       this.country,
       this.description,
+      this.icon,
       this.temperature,
       this.pressure,
       this.humidity,
@@ -31,6 +33,7 @@ class Weather {
     cityName = json["name"];
     country = json["sys"]["country"];
     description = json["weather"][0]['description'];
+    icon=json["weather"][0]["icon"];
     wind = json["wind"]["speed"];
     temperature = json["main"]["temp"];
     pressure = json["main"]["pressure"];

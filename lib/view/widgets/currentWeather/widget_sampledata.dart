@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../utils/colors.dart';
 
@@ -10,6 +11,7 @@ Widget smapleData({
   required String wind,
 }) {
   return Container(
+    height: MediaQuery.of(context).size.height * .2,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: const Color.fromARGB(47, 0, 0, 0)),
@@ -26,16 +28,16 @@ Widget smapleData({
                 Image.asset(
                   "assets/lowTemp.png",
                   color: themestate.getDarktheme
-                      ? defaultWhiteColor
-                      : cityAndTemperatureColor,
+                      ? blendWhite
+                      : humidityWindAndDescriptionColor,
                   scale: 10,
                 ),
                 Text(
                   maxTemp,
-                  style: TextStyle(
+                  style: GoogleFonts.orbitron(
                     color: themestate.getDarktheme
-                        ? defaultWhiteColor
-                        : cityAndTemperatureColor,
+                        ? blendWhite
+                        : humidityWindAndDescriptionColor,
                     fontSize: 15,
                     fontWeight: FontWeight.w900,
                   ),
@@ -53,14 +55,14 @@ Widget smapleData({
                 color: themestate.getDarktheme
                     ? defaultWhiteColor
                     : cityAndTemperatureColor,
-                scale: 10,
+                scale: 5,
               ),
               Text(humidity,
-                  style: TextStyle(
+                  style: GoogleFonts.orbitron(
                     color: themestate.getDarktheme
                         ? defaultWhiteColor
                         : cityAndTemperatureColor,
-                    fontSize: 15,
+                    fontSize: 25,
                     fontWeight: FontWeight.w900,
                   )),
             ],
@@ -75,15 +77,15 @@ Widget smapleData({
               Image.asset(
                 "assets/wind (1).png",
                 color: themestate.getDarktheme
-                    ? defaultWhiteColor
-                    : cityAndTemperatureColor,
+                    ? blendWhite
+                    : humidityWindAndDescriptionColor,
                 scale: 10,
               ),
               Text(wind,
-                  style: TextStyle(
+                  style: GoogleFonts.orbitron(
                     color: themestate.getDarktheme
-                        ? defaultWhiteColor
-                        : cityAndTemperatureColor,
+                        ? blendWhite
+                        : humidityWindAndDescriptionColor,
                     fontSize: 15,
                     fontWeight: FontWeight.w900,
                   )),

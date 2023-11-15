@@ -5,7 +5,7 @@ import 'package:weather_app/viewmodel/provider/provide_historydata.dart';
 import 'package:weather_app/viewmodel/provider/provider_theme.dart';
 
 class HistoryPage extends StatelessWidget {
-  HistoryPage({
+  const HistoryPage({
     super.key,
   });
   
@@ -54,10 +54,10 @@ class HistoryPage extends StatelessWidget {
                         height: 50,
                         width: double.infinity,
                         child: ListTile(
-                          leading: Text(sHProvider.date[reversedIndex] ?? ""),
+                          leading: Text(sHProvider.date[reversedIndex]),
                           title: Text(
-                              sHProvider.searchListData[reversedIndex] ?? ""),
-                          trailing: Text(sHProvider.time[reversedIndex] ?? ""),
+                              sHProvider.searchListData[reversedIndex]),
+                          trailing: Text(sHProvider.time[reversedIndex]),
                         ),
                       );
                     }));

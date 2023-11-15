@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../viewmodel/theme/theme_data.dart';
 
 ThemeClass themeClassObj = ThemeClass();
-Color lightPrimaryColor = Colors.amber;
-Color lightHintText = Colors.black;
-Color lightAppbar = const Color.fromARGB(255, 255, 255, 255);
+const lightPrimaryColor = Colors.amber;
+const lightHintText = Colors.black;
+const lightAppbar =  Color.fromARGB(255, 255, 255, 255);
 
-Color darkPrimaryColor = Colors.black;
-Color darkHintText = Colors.white;
-Color darkAppbar = Colors.black;
+const darkPrimaryColor = Colors.black;
+const darkHintText = Colors.white;
+const darkAppbar = Colors.black;
 
-Color secondaryColor = Color.fromARGB(255, 255, 255, 255);
+const secondaryColor = Color.fromARGB(255, 255, 255, 255);
 //////////////////////////////////////////////////////
 const defaultWhiteColor = Colors.white;
 const customGrey = Color.fromARGB(221, 3, 2, 2);

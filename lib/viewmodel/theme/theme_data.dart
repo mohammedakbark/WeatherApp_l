@@ -24,10 +24,10 @@ class ThemeClass {
 
   static ThemeData lightTheme = ThemeData(
     primaryColor: ThemeData.light().scaffoldBackgroundColor,
-    appBarTheme: AppBarTheme(
+    appBarTheme:const AppBarTheme(
         backgroundColor: lightAppbar,
-        iconTheme: const IconThemeData(color: defaultAmber)),
-    inputDecorationTheme: InputDecorationTheme(
+        iconTheme:  IconThemeData(color: defaultAmber)),
+    inputDecorationTheme:const InputDecorationTheme(
       hintStyle: TextStyle(color: lightHintText),
     ),
     colorScheme: const ColorScheme.light().copyWith(
@@ -42,7 +42,7 @@ class ThemeClass {
       appBarTheme:
           const AppBarTheme(iconTheme: IconThemeData(color: defaultAmber)),
       inputDecorationTheme:
-          InputDecorationTheme(hintStyle: TextStyle(color: darkHintText)),
+        const  InputDecorationTheme(hintStyle: TextStyle(color: darkHintText)),
       colorScheme: const ColorScheme.dark()
           .copyWith(primary: darkPrimaryColor, secondary: secondaryColor));
 }
