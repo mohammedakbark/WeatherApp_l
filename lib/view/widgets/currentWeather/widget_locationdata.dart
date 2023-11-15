@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Widget locationData(
     {required themestate,
@@ -51,21 +52,16 @@ Widget locationData(
                   SizedBox(
                     child: Text(
                       temperature,
-                      style: TextStyle(
+                      style: GoogleFonts.orbitron(
                         color: themestate.getDarktheme
                             ? defaultWhiteColor
                             : cityAndTemperatureColor,
-                        fontSize: 100,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 70,
+                        // fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  weather != null
-                      ? Image.asset(
-                          image,
-                          scale: 4,
-                        )
-                      : const CircularProgressIndicator()
+                  weather != null ? image : const CircularProgressIndicator()
                 ],
               ),
             ),

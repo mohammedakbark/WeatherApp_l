@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
+import 'package:weather_app/model/model_forcastdata.dart';
 
 import '../../../utils/colors.dart';
-import '../../../viewmodel/descreption_image.dart';
 
 Widget oneWeekForcast(
     {required String time,
@@ -13,7 +14,7 @@ Widget oneWeekForcast(
     required String maxTemp,
     weather,
     themestate,
-    obj,
+    ForcastWeather? obj,
     index}) {
   DateFormat timeFormat = DateFormat("h a");
   String timeOnly = "";
@@ -23,11 +24,10 @@ Widget oneWeekForcast(
   }
   // print(timeOnly);
   return Container(
-    decoration: BoxDecoration(
-        color: themestate.getDarktheme
-            ? cityAndTemperatureColor
-            : defaultWhiteColor,
-        borderRadius:const BorderRadius.all(Radius.circular(10))),
+    margin: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+    decoration: const BoxDecoration(
+        color: Color.fromARGB(47, 0, 0, 0),
+        borderRadius: BorderRadius.all(Radius.circular(10))),
     padding: const EdgeInsets.all(10),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +47,7 @@ Widget oneWeekForcast(
                   ),
                   Text(
                     timeOnly,
-                    style: TextStyle(
+                    style: GoogleFonts.orbitron(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
                       color: themestate.getDarktheme
@@ -68,29 +68,27 @@ Widget oneWeekForcast(
                 ),
               ),
         weather != null
-            ? Image.asset(
-                weatherConditions(obj2: obj, myindext: index),
-                scale: 10,
-              )
+            ? Image.network(
+                "https://openweathermap.org/img/wn/${obj?.list?[index].icon}.png")
             : Lottie.asset(
                 "assets/loadingImage.json",
                 height: 80,
                 width: 80,
               ),
         Text(maxTemp,
-            style: TextStyle(
+            style: GoogleFonts.orbitron(
               color: themestate.getDarktheme
                   ? defaultWhiteColor
                   : cityAndTemperatureColor,
-              fontSize: 15,
+              fontSize: 30,
               fontWeight: FontWeight.w900,
             )),
         Text(minTemp,
-            style: TextStyle(
+            style: GoogleFonts.orbitron(
               color: themestate.getDarktheme
-                  ? defaultWhiteColor
-                  : cityAndTemperatureColor,
-              fontSize: 15,
+                  ? blendWhite
+                  : humidityWindAndDescriptionColor,
+              fontSize: 20,
               fontWeight: FontWeight.w900,
             )),
       ],

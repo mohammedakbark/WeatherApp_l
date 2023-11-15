@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'package:weather_app/viewmodel/provider/provide_historydata.dart';
 
 import '../utils/constant.dart';
-import '../view/pages/page_home.dart';
 
 class LocPermissionProvider {
 
